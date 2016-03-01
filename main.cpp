@@ -4,7 +4,7 @@
 #include <string>
 #include <unistd.h>
 #include <getopt.h>
-
+#include <fstream>
 struct t_hostparams 
 {
 
@@ -52,10 +52,18 @@ int main(int argc, char* argv[])
       return 1;
     }
 
+   auto pid = fork();
+   if (!pid)
+   {
     httpservice::server myserver(params.host, params.port, params.doc_root);
-
-    
     myserver.run();
+   }
+  else
+  {
+    std::ofstream f("final.pid");
+    f << pid << std::endl;
+  }
+
   }
   catch (std::exception& e)
   {
