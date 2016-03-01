@@ -1,18 +1,8 @@
-//
-// request_parser.cpp
-// ~~~~~~~~~~~~~~~~~~
-//
-// Copyright (c) 2003-2013 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>)
-//
 
 #include "request_parser.hpp"
 #include "request.hpp"
 
-namespace http {
-namespace server {
+namespace httpservice{
 
 request_parser::request_parser()
   : state_(method_start)
@@ -311,5 +301,4 @@ bool request_parser::is_digit(int c)
   return c >= '0' && c <= '9';
 }
 
-} // namespace server
-} // namespace http
+}

@@ -25,7 +25,7 @@ find_package(Boost 1.54.0 COMPONENTS regex system thread coroutine context files
 include_directories(${Boost_INCLUDE_DIRS})
 
 
-add_executable(final main.cpp server.cpp connection.cpp connection_manager.cpp mime_types.cpp reply.cpp request_handler.cpp request_parser.cpp)
+add_executable(final main.cpp server.cpp cConnection.cpp cConnManager.cpp cRequestHandler.cpp mime_types.cpp reply.cpp request_parser.cpp)
 #target_link_libraries(final ${Boost_LIBRARIES})
 target_link_libraries(final ${Boost_LIBRARIES})
 target_link_libraries(final ${CMAKE_THREAD_LIBS_INIT})

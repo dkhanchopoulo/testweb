@@ -1,23 +1,11 @@
-//
-// reply.hpp
-// ~~~~~~~~~
-//
-// Copyright (c) 2003-2013 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>)
-//
-
-#ifndef HTTP_REPLY_HPP
-#define HTTP_REPLY_HPP
+#pragma once
 
 #include <string>
 #include <vector>
 #include <boost/asio.hpp>
 #include "header.hpp"
 
-namespace http {
-namespace server {
+namespace httpservice{
 
 /// A reply to be sent to a client.
 struct reply
@@ -59,6 +47,4 @@ struct reply
 };
 
 } // namespace server
-} // namespace http
 
-#endif // HTTP_REPLY_HPP

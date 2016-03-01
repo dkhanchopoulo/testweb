@@ -1,18 +1,7 @@
-//
-// main.cpp
-// ~~~~~~~~
-//
-// Copyright (c) 2003-2013 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>)
-//
-
 #include <iostream>
-#include <string>
 #include <boost/asio.hpp>
 #include "server.hpp"
-
+#include <string>
 #include <unistd.h>
 #include <getopt.h>
 
@@ -50,32 +39,27 @@ int main(int argc, char* argv[])
 {
   try
   {
-   	
-
 
     struct t_hostparams params;
     getoptions(argc, argv, params);
-	
-    
 
 	// Check command line arguments.
     if (params.notconfigured())
     {
-      std::cerr << "Usage: http_server -h <address> -p <port> -d <doc_root>\n";
-      std::cerr << "  For IPv4, try:\n";
-      std::cerr << "    receiver 0.0.0.0 80 .\n";
+      std::cerr << " To run final usage:  -h <address> -p <port> -d <doc_root>\n";
+      std::cerr << " try:\n";
+      std::cerr << " ./final -h 0.0.0.0 -p 80 -d .\n";
       return 1;
     }
 
-    // Initialise the server.
-    http::server::server s(params.host, params.port, params.doc_root);
+    httpservice::server myserver(params.host, params.port, params.doc_root);
 
-    // Run the server until stopped.
-    s.run();
+    
+    myserver.run();
   }
   catch (std::exception& e)
   {
-    std::cerr << "exception: " << e.what() << "\n";
+    std::cerr << "std::exception: " << e.what() << "\n";
   }
 
   return 0;

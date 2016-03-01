@@ -1,18 +1,8 @@
-//
-// reply.cpp
-// ~~~~~~~~~
-//
-// Copyright (c) 2003-2013 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>)
-//
 
 #include "reply.hpp"
 #include <string>
 
-namespace http {
-namespace server {
+namespace httpservice{
 
 namespace status_strings {
 
@@ -251,5 +241,4 @@ reply reply::stock_reply(reply::status_type status)
   return rep;
 }
 
-} // namespace server
-} // namespace http
+}
