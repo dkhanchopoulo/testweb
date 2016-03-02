@@ -23,6 +23,13 @@ void cRequestHandler::handle_request(const request& req, reply& rep)
     return;
   }
 
+//trace
+
+  std::ofstream f ("./trace-log.txt", std::ios::app);
+  f << "REQUEST: " << request_path << std::endl;
+  f << "REQ.uri: " << req.uri << std::endl;
+  f.close();
+
   // Request path must be absolute and not contain "..".
   if (request_path.empty() || request_path[0] != '/'
       || request_path.find("..") != std::string::npos)
@@ -97,6 +104,10 @@ bool cRequestHandler::url_decode(const std::string& in, std::string& out)
     else if (in[i] == '+')
     {
       out += ' ';
+    }
+    else if (in[i] == '?')
+    {
+    break; //finish processing of the path! now it is parameters
     }
     else
     {
